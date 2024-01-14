@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Ornek220 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Dizi Boyutunu Giriniz: ");
+        if (scanner.hasNextInt()) {
+            int boyut = scanner.nextInt();
+
+            if (boyut >= 2) {
+                int[] B = new int[boyut];
+
+                System.out.println("Dizi Elemanlarını Giriniz:");
+                for (int i = 0; i < B.length; i++) {
+                    System.out.print((i + 1) + ". Elemanı Gir: ");
+                    if (scanner.hasNextInt()) {
+                        B[i] = scanner.nextInt();
+                        // Değer girildi, devam et.
+                    } else {
+                        System.out.println("Geçersiz bir değer girdiniz. Program sonlandırılıyor.");
+                        return;
+                    }
+                }
+
+                int enYakinIndis = 1;
+
+                for (int a = 2; a < B.length; a++) {
+                    if (Math.abs(B[0] - B[a]) < Math.abs(B[0] - B[enYakinIndis])) {
+                        enYakinIndis = a;
+                    }
+                }
+
+                System.out.println("İlk Sayıya En Yakın Sayı = " + B[enYakinIndis]);
+            } else {
+                System.out.println("Geçersiz dizi boyutu. Program sonlandırılıyor.");
+            }
+        } else {
+            System.out.println("Geçerli bir sayı girmediniz. Program sonlandırılıyor.");
+        }
+
+        System.out.print("Devam etmek için bir tuşa basın...");
+        scanner.close();
+    }
+}
