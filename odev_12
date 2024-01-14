@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] B = new int[5];
+        int a = 0, say = 0, toplam = 0;
+
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < B.length; i++) {
+            System.out.print((a + 1) + ". Elemanı Gir: ");
+            B[a] = scanner.nextInt();
+
+            if (B[a] % 10 == 0) {
+                say++;
+                toplam += B[a]; // Sadece son rakamı sıfır olan sayıların toplamını hesapla
+            }
+
+            a++;
+        }
+
+        double ortalama = say > 0 ? (double) toplam / say : 0; // Sıfır bölme hatasını engellemek için kontrol
+
+        System.out.println("Son Rakamı Sıfır Olan Sayı Adedi: " + say);
+        System.out.println("Son Rakamı Sıfır Olan Sayıların Toplamı: " + toplam);
+        System.out.println("Son Rak
