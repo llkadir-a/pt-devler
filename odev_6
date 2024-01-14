@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class ToplamaProgrami {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Birinci sayıyı girin: ");
+        int birinciSayi = scanner.nextInt();
+
+        System.out.print("İkinci sayıyı girin: ");
+        int ikinciSayi = scanner.nextInt();
+
+        System.out.print("TEK'leri mi ÇİFT'leri mi toplamak istersiniz? (TEK/ÇİFT): ");
+        String tercih = scanner.next().toUpperCase();
+
+        int baslangic = Math.min(birinciSayi, ikinciSayi);
+        int bitis = Math.max(birinciSayi, ikinciSayi);
+
+        int toplam = 0;
+
+        if (tercih.equals("TEK")) {
+            for (int i = baslangic; i <= bitis; i++) {
+                if (i % 2 != 0) {
+                    toplam += i;
+                }
+            }
+        } else if (tercih.equals("ÇİFT")) {
+            for (int i = baslangic; i <= bitis; i++) {
+                if (i % 2 == 0) {
+                    toplam += i;
+                }
+            }
+        } else {
+            System.out.println("Geçersiz seçim!");
+            return;
+        }
+
+        System.out.println("Toplam = " + toplam);
+    }
+}
