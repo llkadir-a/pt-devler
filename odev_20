@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Or259 {
+    public static void main(String[] args) {
+        String s, ys = "";
+        int a;
+        char c;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Bir cümle giriniz:");
+        s = scanner.nextLine();
+
+        for (a = 0; a < s.length(); a++) {
+            c = s.charAt(a);
+
+            if (c >= 'A' && c <= 'Z') { // büyük harf ise
+                ys = ys + (char) (c + 32); // ASCII kodu tekrar karaktere dönüştürülüyor!
+            } else {
+                ys = ys + c;
+            }
+        }
+
+        System.out.println(ys);
+        System.out.println("\n\nDevam etmek için bir tuşa basın...");
+        scanner.nextLine(); // Bekleme işlemi için bir ekstra nextLine() çağrısı
+        scanner.close();
+    }
+}
