@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Bir ikili sayı girin: ");
+        String ikiliSayi = scanner.nextLine();
+
+        int ondalikDeger = 0;
+        int tabanDeger = 1;
+
+        for (int i = ikiliSayi.length() - 1; i >= 0; i--) {
+            if (ikiliSayi.charAt(i) == '1') {
+                ondalikDeger += tabanDeger;
+            }
+            tabanDeger *= 2;
+        }
+
+        System.out.println("Girilen ikili (Binary) Sayı: " + ikiliSayi);
+        System.out.println("Ondalık (Decimal) Sayı: " + ondalikDeger);
+    }
+}
