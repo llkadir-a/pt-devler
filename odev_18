@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Ornek223 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("İsmi Giriniz: ");
+        String isim = scanner.nextLine();
+
+        char[] karakterler = isim.toCharArray(); // String'i karakter dizisine çevirme
+
+        boolean[] D = new boolean[karakterler.length];
+        Random rastgele = new Random();
+
+        System.out.print("Rastgele Karıştırılmış İsim: ");
+
+        for (int a = 0; a < karakterler.length; a++) {
+            int sayi;
+            do {
+                sayi = rastgele.nextInt(karakterler.length);
+            } while (D[sayi]);
+
+            D[sayi] = true;
+            System.out.print(karakterler[sayi]);
+        }
+
+        System.out.print("\n\n\nDevam etmek için bir tuşa basın...");
+        scanner.nextLine(); // Bekleme işlemi için bir ekstra nextLine() çağrısı
+        scanner.close();
+    }
+}
