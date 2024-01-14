@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args) {
+        double[] burslar = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+
+        for (double burs : burslar) {
+            if (burs < 500) {
+                double yeniBurs = burs * 1.1 + 50;
+                System.out.println(yeniBurs);
+            } else {
+                System.out.println(burs);
+            }
+        }
+
+        System.out.print("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+        new java.util.Scanner(System.in).nextLine();
+    }
+}
