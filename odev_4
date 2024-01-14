@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class ToplamaProgrami {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int toplam = 0;
+        int sayi;
+
+        while (true) {
+            System.out.print("Bir sayı girin: ");
+            sayi = scanner.nextInt();
+
+            if (sayi == 83) {
+                break;
+            }
+
+            toplam += sayi;
+        }
+
+        System.out.println("Toplam = " + toplam);
+    }
+}
