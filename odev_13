@@ -1,0 +1,37 @@
+public class Program {
+    public static void main(String[] args) {
+        int enBuyuk = Integer.MIN_VALUE;
+        int enDusuk = Integer.MAX_VALUE;
+        String[] isimler = { "Emin", "Emir", "İclal", "Bekir", "Cem", "Arda", "Kaan", "Metin", "Can", "Ramiz" };
+        int[] notlar = { 56, 78, 95, 23, 95, 87, 61, 77, 45, 33 };
+
+        String enYuksekAlanlar = "En Yüksek Notu Alan Kişi/Kişiler: ";
+        String enDusukAlanlar = "En Düşük Notu Alan Kişi/Kişiler: ";
+
+        for (int i = 0; i < notlar.length; i++) {
+            if (notlar[i] > enBuyuk) {
+                enBuyuk = notlar[i];
+            }
+
+            if (notlar[i] < enDusuk) {
+                enDusuk = notlar[i];
+            }
+        }
+
+        for (int i = 0; i < notlar.length; i++) {
+            if (notlar[i] == enBuyuk) {
+                enYuksekAlanlar += isimler[i] + ", ";
+            }
+
+            if (notlar[i] == enDusuk) {
+                enDusukAlanlar += isimler[i] + ", ";
+            }
+        }
+
+        System.out.println(enYuksekAlanlar.substring(0, enYuksekAlanlar.length() - 2) + ".");
+        System.out.println(enDusukAlanlar.substring(0, enDusukAlanlar.length() - 2) + ".");
+
+        System.out.print("Devam etmek için bir tuşa basın...");
+        new java.util.Scanner(System.in).nextLine();
+    }
+}
