@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class ParkUcretiHesaplama {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Araç Türünü Girin (Otomobil/Kamyon/Is Makinasi): ");
+        String aracTuru = scanner.nextLine();
+
+        System.out.print("Kalma Süresini Saat Cinsinden Girin: ");
+        int kalmaSuresi = scanner.nextInt();
+
+        double ucret = hesaplaCikisUcreti(aracTuru, kalmaSuresi);
+
+        if (ucret != -1) {
+            System.out.println("Çıkış Ücreti: " + ucret);
+        }
+    }
+
+    static double hesaplaCikisUcreti(String aracTuru, int kalmaSuresi) {
+        double ucret = 0;
+
+        switch (aracTuru) {
+            case "Otomobil":
+                if (kalmaSuresi <= 2) {
+                    ucret = 5;
+                } else if (kalmaSuresi <= 10) {
+                    ucret = 5 + (kalmaSuresi - 2);
+                } else {
+                    ucret = 13 + Math.min(kalmaSuresi - 10, 24 - 10) + Math.max(kalmaSuresi - 24, 0);
+                }
+                break;
+
+            case "Kamyon":
+                if (kalmaSuresi <= 2) {
+                    ucret = 8;
+                } else if (kalmaSuresi <= 8) {
+                    ucret = 8 + (kalmaSuresi - 2) * 2;
+                } else {
+                    ucret = 20 + Math.min(kalmaSuresi - 8, 24 - 8) + Math.max(kalmaSuresi - 24, 0);
+                }
+                break;
+
+            case "Is Makinasi":
+                if (kalmaSuresi <= 2) {
+                    ucret = 12;
+                } else if (kalmaSuresi <= 8) {
+                    ucret = 12 + (kalmaSuresi - 2) * 3;
+                } else {
+                    ucret = 36 + Math.min(kalmaSuresi - 8, 24 - 8) + Math.max(kalmaSuresi - 24, 0);
+                }
+                break;
+
+            default:
+                System.out.println("Geçersiz araç türü!");
+                return -1;
+        }
+
+        return ucret;
+    }
+}
