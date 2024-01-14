@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Araç türünü seçin (Otomobil/O, Kamyon/K, İş Makinası/I): ");
+        char aracTuru = char.ToUpper(Console.ReadKey().KeyChar);
+
+        Console.WriteLine("\n\nKalma süresini saat cinsinden girin: ");
+        int kalmaSuresi = int.Parse(Console.ReadLine());
+
+        double toplamUcret = HesaplaUcret(aracTuru, kalmaSuresi);
+
+        Console.WriteLine($"\n\nToplam çıkış ücreti: {toplamUcret} TL");
+
+        Console.ReadKey();
+    }
+
+    static double HesaplaUcret(char aracTuru, int kalmaSuresi)
+    {
+        double baslangicUcret = 0;
+        double saatBasiArtisOrani = kalmaSuresi <= 2 ? 0 : (kalmaSuresi - 2) / 10;
+
+        switch (char.ToUpper(aracTuru))
+        {
+            case 'O':
+                baslangicUcret = 5 + saatBasiArtisOrani * 1;
+                break;
+            case 'K':
+                baslangicUcret = 8 + saatBasiArtisOrani * 2;
+                break;
+            case 'I':
+                baslangicUcret = 12 + saatBasiArtisOrani * 3;
+                break;
+            default:
+                Console.WriteLine("Geçersiz araç türü!");
+                break;
+        }
+
+        return baslangicUcret;
+    }
+}
