@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Bir sayı girin: ");
+        int b = scanner.nextInt();
+        String s = "b Sayısı Asal Sayı";
+
+        if (b == 1) {
+            System.out.println("ASAL DEĞİL!");
+            System.out.print("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+            scanner.nextLine(); // Enter tuşuna basıldığında devam etmek için bir tuş bekler
+            return;
+        }
+
+        for (int a = 2; a <= b / 2; a++) {
+            if (b % a == 0) {
+                s = "b Sayısı Asal Sayı Değil!";
+                break;
+            }
+        }
+
+        System.out.println(s);
+
+        System.out.print("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+        scanner.nextLine(); // Enter tuşuna basıldığında devam etmek için bir tuş bekler
+    }
+}
